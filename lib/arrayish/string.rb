@@ -9,6 +9,10 @@ module Arrayish
       end
     end
 
+    def to_a
+      self.split(separator)
+    end
+
     private
 
     def separator

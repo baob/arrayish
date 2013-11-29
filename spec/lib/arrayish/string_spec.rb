@@ -14,6 +14,10 @@ module Arrayish
       specify 'it equals the string' do
         expect( subject ).to eql(a_string) 
       end
+
+      specify '#to_a returns the string in an array' do
+        expect( subject.to_a ).to eql( [a_string] )
+      end
     end
 
     context 'initialised with an array of two strings' do
@@ -23,6 +27,10 @@ module Arrayish
 
       specify 'it equals the strings joined with separator' do
         expect( subject ).to eql("#{a_string},#{x_string}") 
+      end
+
+      specify '#to_a returns the strings in an array' do
+        expect( subject.to_a ).to eql( [a_string,x_string] )
       end
     end
 
