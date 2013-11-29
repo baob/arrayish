@@ -17,6 +17,10 @@ module Arrayish
       new_string( self.to_a + coerce_to_array(something) )
     end
 
+    def [](*args)
+      new_string( self.to_a.send(:[],*args) )
+    end
+
     private
 
     def separator
