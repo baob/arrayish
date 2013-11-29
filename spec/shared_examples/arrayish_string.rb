@@ -5,6 +5,11 @@ shared_examples 'an arrayish string' do
     expect( subject + added_string ).to eql( "#{subject},#{added_string}" )
   end
 
+  it '+ with an array adds the array elements with separators' do
+    added_array = [ '1234', '789' ]
+    expect( subject + added_array ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
+  end
+
   specify '[0] operator selects from the array' do
     expect( subject[0] ).to eql( described_class.new( subject.to_a[0] ) )
   end
