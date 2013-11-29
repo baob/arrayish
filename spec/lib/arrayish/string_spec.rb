@@ -34,6 +34,8 @@ module Arrayish
       specify '#to_a returns the strings in an array' do
         expect( subject.to_a ).to eql( [a_string,x_string] )
       end
+
+      it_behaves_like 'an arrayish string'
     end
 
   end
