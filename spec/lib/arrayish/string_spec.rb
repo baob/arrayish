@@ -6,5 +6,25 @@ module Arrayish
     it 'is a kind of string' do
       expect( subject ).to be_kind_of( ::String )
     end
+
+    context 'initialised with a string' do
+      let(:a_string) { 'abcde' }
+      subject{ described_class.new(a_string) }
+
+      specify 'it equals the string' do
+        expect( subject ).to eql(a_string) 
+      end
+    end
+
+    context 'initialised with an array of two strings' do
+      let(:a_string) { 'abcde' }
+      let(:x_string) { 'xyz' }
+      subject{ described_class.new([a_string, x_string]) }
+
+      specify 'it equals the strings joined with separator' do
+        expect( subject ).to eql("#{a_string},#{x_string}") 
+      end
+    end
+
   end
 end
