@@ -13,10 +13,22 @@ module Arrayish
       self.split(separator)
     end
 
+    def +(something)
+      new_string( self.to_a + coerce_to_array(something) )
+    end
+
     private
 
     def separator
       ','
+    end
+
+    def coerce_to_array(input)
+      [input]
+    end
+
+    def new_string(something)
+      self.class.new(something)
     end
 
   end

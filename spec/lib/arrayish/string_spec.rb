@@ -18,6 +18,8 @@ module Arrayish
       specify '#to_a returns the string in an array' do
         expect( subject.to_a ).to eql( [a_string] )
       end
+
+      it_behaves_like 'an arrayish string'
     end
 
     context 'initialised with an array of two strings' do
