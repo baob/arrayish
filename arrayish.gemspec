@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Arrayish::VERSION
   spec.authors       = ["baob"]
   spec.email         = ["coder@onesandthrees.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{ The gem introduces the Arrayish::String class, a string that has some array characteristics. }
+  spec.summary       = %q{ Arrayish::String simplifies and DRYs code where an array appears in a string with delimiters. }
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,6 +1,10 @@
 # Arrayish
 
-TODO: Write a gem description
+The gem introduces the Arrayish::String class, a string that has
+some array characteristics.
+
+Arrayish::String simplifies and DRYs code where an array appears in a
+string with delimiters.
 
 ## Installation
 
