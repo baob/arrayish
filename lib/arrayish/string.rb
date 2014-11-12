@@ -28,6 +28,7 @@ module Arrayish
     end
 
     def coerce_to_array(input)
+      return [] if input.nil? || input.empty?
       [input]
     end
 
