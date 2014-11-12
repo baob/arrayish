@@ -10,6 +10,11 @@ shared_examples 'an arrayish string' do
     expect( subject + added_string ).to eql( "#{subject}" )
   end
 
+  it '+ with nil makes no change' do
+    added_string = nil
+    expect( subject + added_string ).to eql( "#{subject}" )
+  end
+
   it '+ with an array adds the array elements with separators' do
     added_array = [ '1234', '789' ]
     expect( subject + added_array ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
