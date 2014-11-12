@@ -38,6 +38,21 @@ module Arrayish
       it_behaves_like 'a nil arrayish string'
     end
 
+    context 'initialised with nil' do
+      let(:a_string) { nil }
+      subject{ described_class.new(a_string) }
+
+      specify 'it equals an empty string' do
+        expect( subject ).to eql('')
+      end
+
+      specify '#to_a returns an empty array' do
+        expect( subject.to_a ).to eql( [] )
+      end
+
+      it_behaves_like 'a nil arrayish string'
+    end
+
     context 'initialised with an array of two strings' do
       subject{ described_class.new([a_string, x_string]) }
 
