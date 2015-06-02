@@ -13,11 +13,16 @@ module Arrayish
 
   def +(arg)
     return self if arg.nil? || arg == ''
-    super
+    return new_string(arg) if self.to_s.size == 0
+    new_string(@this_object + arg)
   end
 
   def to_s
     @this_object
+  end
+
+  def new_string(something)
+    self.class.new(something)
   end
 
 end

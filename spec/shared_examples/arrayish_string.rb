@@ -1,8 +1,14 @@
 shared_examples 'an arrayish string' do
 
-  it '+ with a string adds the string with a separator' do
-    added_string = '1234'
-    expect( subject + added_string ).to eql( "#{subject},#{added_string}" )
+  context '+ with a string' do
+    let (:added_string) { '1234' }
+    let(:result) { subject + added_string }
+
+    it 'adds the string with a separator' do
+      expect( result.to_s ).to eql( "#{subject},#{added_string}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
   it '+ with an empty string makes no change' do
@@ -15,9 +21,15 @@ shared_examples 'an arrayish string' do
     expect( subject + added_string ).to eql( subject )
   end
 
-  it '+ with an array adds the array elements with separators' do
-    added_array = [ '1234', '789' ]
-    expect( subject + added_array ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
+  context '+ with an array' do
+    let (:added_array) { [ '1234', '789' ] }
+    let(:result) { subject + added_array }
+
+    it 'adds the array elements with separators' do
+      expect( result.to_s ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
   specify '[0] operator selects from the array' do
@@ -36,9 +48,15 @@ shared_examples 'a nil arrayish string' do
     expect( subject.to_a ).to eql( [] )
   end
 
-  it '+ with a string gives the added string' do
-    added_string = '1234'
-    expect( subject + added_string ).to eql( "#{added_string}" )
+  context '+ with a string' do
+    let (:added_string) { '1234' }
+    let(:result) { subject + added_string }
+
+    it 'gives the added string' do
+      expect( result.to_s ).to eql( "#{added_string}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
   it '+ with an empty string makes no change' do
@@ -51,9 +69,15 @@ shared_examples 'a nil arrayish string' do
     expect( subject + added_string ).to eql( subject )
   end
 
-  it '+ with an array gives the array elements with separators' do
-    added_array = [ '1234', '789' ]
-    expect( subject + added_array ).to eql( "#{added_array[0]},#{added_array[1]}" )
+  context '+ with an array' do
+    let (:added_array) { [ '1234', '789' ] }
+    let(:result) { subject + added_array }
+
+    it 'gives the array elements with separators' do
+      expect( result.to_s ).to eql( "#{added_array[0]},#{added_array[1]}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
 end
