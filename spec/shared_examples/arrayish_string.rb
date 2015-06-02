@@ -32,10 +32,6 @@ end
 
 shared_examples 'a nil arrayish string' do
 
-  specify 'it equals an empty string' do
-    expect( subject ).to eql('')
-  end
-
   specify '#to_a returns an empty array' do
     expect( subject.to_a ).to eql( [] )
   end
