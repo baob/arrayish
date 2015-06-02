@@ -6,6 +6,10 @@ some array characteristics.
 Arrayish::String simplifies and DRYs code where an array appears in a
 string with delimiters.
 
+[![Travis Build
+Status](https://travis-ci.org/baob/arrayish.svg?branch=master)](https://travis-ci.org/baob/testing-in-nodejs)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
