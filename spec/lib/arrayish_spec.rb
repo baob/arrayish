@@ -12,10 +12,15 @@ describe ClassIncludingArrayish do
   let(:x_string) { 'xyz' }
 
   context 'initialised with a string' do
-    subject{ described_class.new(a_string) }
+    let(:instance) { described_class.new(a_string) }
+    subject{ instance }
 
-    specify 'it equals the string' do
-      expect( subject.to_s ).to eql(a_string)
+    describe 'when cast as a string' do
+      subject{ instance.to_s }
+
+      specify 'it equals the string' do
+        expect( subject ).to eql(a_string)
+      end
     end
 
     specify '#to_a returns the string in an array' do
@@ -27,10 +32,15 @@ describe ClassIncludingArrayish do
 
   context 'initialised with an empty string' do
     let(:a_string) { '' }
-    subject{ described_class.new(a_string) }
+    let(:instance) { described_class.new(a_string) }
+    subject{ instance }
 
-    specify 'it equals an empty string' do
-      expect( subject.to_s ).to eql('')
+    describe 'when cast as a string' do
+      subject{ instance.to_s }
+
+      specify 'it equals an empty string' do
+        expect( subject ).to eql('')
+      end
     end
 
     it_behaves_like 'a nil arrayish string'
@@ -38,20 +48,29 @@ describe ClassIncludingArrayish do
 
   context 'initialised with nil' do
     let(:a_string) { nil }
-    subject{ described_class.new(a_string) }
+    let(:instance) { described_class.new(a_string) }
+    subject{ instance }
 
-    specify 'it equals an empty string' do
-      expect( subject.to_s ).to eql('')
+    describe 'when cast as a string' do
+      subject{ instance.to_s }
+
+      specify 'it equals an empty string' do
+        expect( subject ).to eql('')
+      end
     end
-
-    it_behaves_like 'a nil arrayish string'
   end
 
   context 'initialised with an array of two strings' do
-    subject{ described_class.new([a_string, x_string]) }
+    let(:instance) { described_class.new([a_string, x_string]) }
+    subject{ instance }
 
-    specify 'it equals the strings joined with separator' do
-      expect( subject.to_s ).to eql("#{a_string},#{x_string}")
+
+    describe 'when cast as a string' do
+      subject{ instance.to_s }
+
+      specify 'it equals the strings joined with separator' do
+        expect( subject ).to eql("#{a_string},#{x_string}")
+      end
     end
 
     specify '#to_a returns the strings in an array' do
