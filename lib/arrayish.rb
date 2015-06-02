@@ -11,6 +11,11 @@ module Arrayish
     @this_object.send(method, *args)
   end
 
+  def +(arg)
+    return self if arg.nil? || arg == ''
+    super
+  end
+
   def to_s
     @this_object
   end

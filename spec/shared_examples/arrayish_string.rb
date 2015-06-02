@@ -7,12 +7,12 @@ shared_examples 'an arrayish string' do
 
   it '+ with an empty string makes no change' do
     added_string = ''
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
   it '+ with nil makes no change' do
     added_string = nil
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
   it '+ with an array adds the array elements with separators' do
@@ -43,12 +43,12 @@ shared_examples 'a nil arrayish string' do
 
   it '+ with an empty string makes no change' do
     added_string = ''
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
   it '+ with nil makes no change' do
     added_string = nil
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
   it '+ with an array gives the array elements with separators' do
