@@ -21,11 +21,11 @@ shared_examples 'an arrayish string' do
   end
 
   specify '[0] operator selects from the array' do
-    expect( subject[0] ).to eql( described_class.new( subject.to_a[0] ) )
+    expect( subject[0] ).to eql( subject.to_a[0] )
   end
 
   specify '[-1] operator selects from the array' do
-    expect( subject[-1] ).to eql( described_class.new( subject.to_a[-1] ) )
+    expect( subject[-1] ).to eql( subject.to_a[-1] )
   end
 
 end
