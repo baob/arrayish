@@ -57,3 +57,11 @@ shared_examples 'a nil arrayish string' do
   end
 
 end
+
+shared_examples 'an empty string' do
+
+  specify 'it equals an empty string' do
+    expect( subject ).to eql('')
+  end
+
+end

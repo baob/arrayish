@@ -38,9 +38,7 @@ describe ClassIncludingArrayish do
     describe 'when cast as a string' do
       subject{ instance.to_s }
 
-      specify 'it equals an empty string' do
-        expect( subject ).to eql('')
-      end
+      it_behaves_like 'an empty string'
     end
 
     it_behaves_like 'a nil arrayish string'
@@ -54,9 +52,7 @@ describe ClassIncludingArrayish do
     describe 'when cast as a string' do
       subject{ instance.to_s }
 
-      specify 'it equals an empty string' do
-        expect( subject ).to eql('')
-      end
+      it_behaves_like 'an empty string'
     end
   end
 

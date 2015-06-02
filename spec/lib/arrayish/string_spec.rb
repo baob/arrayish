@@ -27,10 +27,7 @@ module Arrayish
       let(:a_string) { '' }
       subject{ described_class.new(a_string) }
 
-      specify 'it equals an empty string' do
-        expect( subject ).to eql('')
-      end
-
+      it_behaves_like 'an empty string'
       it_behaves_like 'a nil arrayish string'
     end
 
@@ -38,10 +35,7 @@ module Arrayish
       let(:a_string) { nil }
       subject{ described_class.new(a_string) }
 
-      specify 'it equals an empty string' do
-        expect( subject ).to eql('')
-      end
-
+      it_behaves_like 'an empty string'
       it_behaves_like 'a nil arrayish string'
     end
 
