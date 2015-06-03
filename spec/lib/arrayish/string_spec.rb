@@ -13,8 +13,10 @@ module Arrayish
       subject{ described_class.new(a_string) }
 
       specify 'it equals the string' do
-        expect( subject ).to eql(a_string) 
+        expect( subject.to_s ).to eql(a_string)
       end
+
+      specify { expect(subject).to be_an_instance_of(described_class) }
 
       specify '#to_a returns the string in an array' do
         expect( subject.to_a ).to eql( [a_string] )
@@ -46,8 +48,10 @@ module Arrayish
       subject{ described_class.new([a_string, x_string]) }
 
       specify 'it equals the strings joined with separator' do
-        expect( subject ).to eql("#{a_string},#{x_string}") 
+        expect( subject.to_s ).to eql("#{a_string},#{x_string}")
       end
+
+      specify { expect(subject).to be_an_instance_of(described_class) }
 
       specify '#to_a returns the strings in an array' do
         expect( subject.to_a ).to eql( [a_string,x_string] )
