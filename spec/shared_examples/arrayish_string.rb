@@ -11,16 +11,6 @@ shared_examples 'an arrayish string' do
     specify { expect(result).to be_an_instance_of(described_class) }
   end
 
-  it '+ with an empty string makes no change' do
-    added_string = ''
-    expect( subject + added_string ).to eql( subject )
-  end
-
-  it '+ with nil makes no change' do
-    added_string = nil
-    expect( subject + added_string ).to eql( subject )
-  end
-
   context '+ with an array' do
     let (:added_array) { [ '1234', '789' ] }
     let(:result) { subject + added_array }
@@ -59,16 +49,6 @@ shared_examples 'a nil arrayish string' do
     specify { expect(result).to be_an_instance_of(described_class) }
   end
 
-  it '+ with an empty string makes no change' do
-    added_string = ''
-    expect( subject + added_string ).to eql( subject )
-  end
-
-  it '+ with nil makes no change' do
-    added_string = nil
-    expect( subject + added_string ).to eql( subject )
-  end
-
   context '+ with an array' do
     let (:added_array) { [ '1234', '789' ] }
     let(:result) { subject + added_array }
@@ -86,6 +66,20 @@ shared_examples 'an empty string' do
 
   specify 'it equals an empty string' do
     expect( subject ).to eql('')
+  end
+
+end
+
+shared_examples 'unchanged object when adding something insignificant' do
+
+  it '+ with an empty string makes no change' do
+    added_string = ''
+    expect( subject + added_string ).to eql( subject )
+  end
+
+  it '+ with nil makes no change' do
+    added_string = nil
+    expect( subject + added_string ).to eql( subject )
   end
 
 end

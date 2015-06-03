@@ -21,6 +21,7 @@ module Arrayish
       end
 
       it_behaves_like 'an arrayish string'
+      it_behaves_like 'unchanged object when adding something insignificant'
     end
 
     context 'initialised with an empty string' do
@@ -29,6 +30,7 @@ module Arrayish
 
       it_behaves_like 'an empty string'
       it_behaves_like 'a nil arrayish string'
+      it_behaves_like 'unchanged object when adding something insignificant'
     end
 
     context 'initialised with nil' do
@@ -37,6 +39,7 @@ module Arrayish
 
       it_behaves_like 'an empty string'
       it_behaves_like 'a nil arrayish string'
+      it_behaves_like 'unchanged object when adding something insignificant'
     end
 
     context 'initialised with an array of two strings' do
@@ -51,6 +54,7 @@ module Arrayish
       end
 
       it_behaves_like 'an arrayish string'
+      it_behaves_like 'unchanged object when adding something insignificant'
     end
 
   end
