@@ -18,8 +18,6 @@ describe ClassIncludingArrayish do
       expect( subject.to_s ).to eql(init_params)
     end
 
-    specify { expect(subject).to be_an_instance_of(described_class) }
-
     specify '#to_a returns the string in an array' do
       expect( subject.to_a ).to eql( [init_params] )
     end
@@ -48,8 +46,6 @@ describe ClassIncludingArrayish do
     specify 'it equals the strings joined with separator' do
       expect( subject.to_s ).to eql("#{a_string},#{x_string}")
     end
-
-    specify { expect(subject).to be_an_instance_of(described_class) }
 
     specify '#to_a returns the strings in an array' do
       expect( subject.to_a ).to eql( init_params )
