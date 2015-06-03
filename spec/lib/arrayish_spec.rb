@@ -28,7 +28,7 @@ describe ClassIncludingArrayish do
     end
 
     it_behaves_like 'an arrayish string'
-    it_behaves_like 'unchanged object when adding something insignificant'
+    it_behaves_like 'unchanged object when adding nothing'
   end
 
   context 'initialised with an empty string' do
@@ -43,7 +43,7 @@ describe ClassIncludingArrayish do
     end
 
     it_behaves_like 'a nil arrayish string'
-    it_behaves_like 'unchanged object when adding something insignificant'
+    it_behaves_like 'unchanged object when adding nothing'
   end
 
   context 'initialised with nil' do
@@ -58,7 +58,7 @@ describe ClassIncludingArrayish do
     end
 
     it_behaves_like 'a nil arrayish string'
-    it_behaves_like 'unchanged object when adding something insignificant'
+    it_behaves_like 'unchanged object when adding nothing'
   end
 
   context 'initialised with an array of two strings' do
@@ -79,7 +79,7 @@ describe ClassIncludingArrayish do
     end
 
     it_behaves_like 'an arrayish string'
-    it_behaves_like 'unchanged object when adding something insignificant'
+    it_behaves_like 'unchanged object when adding nothing'
   end
 
 end

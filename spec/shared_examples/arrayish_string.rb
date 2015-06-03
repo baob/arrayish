@@ -70,7 +70,7 @@ shared_examples 'an empty string' do
 
 end
 
-shared_examples 'unchanged object when adding something insignificant' do
+shared_examples 'unchanged object when adding nothing' do
 
   it '+ with an empty string makes no change' do
     added_string = ''
