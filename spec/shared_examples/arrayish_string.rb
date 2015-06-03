@@ -64,8 +64,6 @@ shared_examples 'a nil arrayish string' do
     expect( subject.to_s ).to eql('')
   end
 
-  specify { expect(subject).to be_an_instance_of(described_class) }
-
 end
 
 shared_examples 'unchanged object when adding nothing' do
