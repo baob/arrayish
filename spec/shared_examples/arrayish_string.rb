@@ -60,10 +60,6 @@ shared_examples 'a nil arrayish string' do
     specify { expect(result).to be_an_instance_of(described_class) }
   end
 
-end
-
-shared_examples 'an empty string' do
-
   specify 'it equals an empty string' do
     expect( subject.to_s ).to eql('')
   end
