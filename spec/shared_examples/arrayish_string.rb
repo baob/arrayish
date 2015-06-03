@@ -81,3 +81,27 @@ shared_examples 'unchanged object when adding nothing' do
   end
 
 end
+
+shared_examples 'the initialization parameter' do
+
+  specify 'treated as a string, it equals the string' do
+    expect( subject.to_s ).to eql(init_params)
+  end
+
+  specify '#to_a returns the string in an array' do
+    expect( subject.to_a ).to eql( [init_params] )
+  end
+
+end
+
+shared_examples 'the initialization parameters' do
+
+  specify 'treated as a string, it equals the string(s) joined with separator' do
+    expect( subject.to_s ).to eql(init_params.join(','))
+  end
+
+  specify '#to_a returns the string(s) in an array' do
+    expect( subject.to_a ).to eql( init_params )
+  end
+
+end
