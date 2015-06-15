@@ -1,63 +1,105 @@
 shared_examples 'an arrayish string' do
 
-  it '+ with a string adds the string with a separator' do
-    added_string = '1234'
-    expect( subject + added_string ).to eql( "#{subject},#{added_string}" )
+  context '+ with a string' do
+    let (:added_string) { '1234' }
+    let(:result) { subject + added_string }
+
+    it 'adds the string with a separator' do
+      expect( result.to_s ).to eql( "#{subject},#{added_string}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
-  it '+ with an empty string makes no change' do
-    added_string = ''
-    expect( subject + added_string ).to eql( "#{subject}" )
-  end
+  context '+ with an array' do
+    let (:added_array) { [ '1234', '789' ] }
+    let(:result) { subject + added_array }
 
-  it '+ with nil makes no change' do
-    added_string = nil
-    expect( subject + added_string ).to eql( "#{subject}" )
-  end
+    it 'adds the array elements with separators' do
+      expect( result.to_s ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
+    end
 
-  it '+ with an array adds the array elements with separators' do
-    added_array = [ '1234', '789' ]
-    expect( subject + added_array ).to eql( "#{subject},#{added_array[0]},#{added_array[1]}" )
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
 
   specify '[0] operator selects from the array' do
-    expect( subject[0] ).to eql( described_class.new( subject.to_a[0] ) )
+    expect( subject[0] ).to eql( subject.to_a[0] )
   end
 
   specify '[-1] operator selects from the array' do
-    expect( subject[-1] ).to eql( described_class.new( subject.to_a[-1] ) )
+    expect( subject[-1] ).to eql( subject.to_a[-1] )
   end
 
 end
 
 shared_examples 'a nil arrayish string' do
 
-  specify 'it equals an empty string' do
-    expect( subject ).to eql('')
-  end
-
   specify '#to_a returns an empty array' do
     expect( subject.to_a ).to eql( [] )
   end
 
-  it '+ with a string gives the added string' do
-    added_string = '1234'
-    expect( subject + added_string ).to eql( "#{added_string}" )
+  context '+ with a string' do
+    let (:added_string) { '1234' }
+    let(:result) { subject + added_string }
+
+    it 'gives the added string' do
+      expect( result.to_s ).to eql( "#{added_string}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
   end
+
+  context '+ with an array' do
+    let (:added_array) { [ '1234', '789' ] }
+    let(:result) { subject + added_array }
+
+    it 'gives the array elements with separators' do
+      expect( result.to_s ).to eql( "#{added_array[0]},#{added_array[1]}" )
+    end
+
+    specify { expect(result).to be_an_instance_of(described_class) }
+  end
+
+  specify 'it equals an empty string' do
+    expect( subject.to_s ).to eql('')
+  end
+
+end
+
+shared_examples 'unchanged object when adding nothing' do
 
   it '+ with an empty string makes no change' do
     added_string = ''
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
   it '+ with nil makes no change' do
     added_string = nil
-    expect( subject + added_string ).to eql( "#{subject}" )
+    expect( subject + added_string ).to eql( subject )
   end
 
-  it '+ with an array gives the array elements with separators' do
-    added_array = [ '1234', '789' ]
-    expect( subject + added_array ).to eql( "#{added_array[0]},#{added_array[1]}" )
+end
+
+shared_examples 'the initialization parameter' do
+
+  specify 'treated as a string, it equals the string' do
+    expect( subject.to_s ).to eql(init_params)
+  end
+
+  specify '#to_a returns the string in an array' do
+    expect( subject.to_a ).to eql( [init_params] )
+  end
+
+end
+
+shared_examples 'the initialization parameters' do
+
+  specify 'treated as a string, it equals the string(s) joined with separator' do
+    expect( subject.to_s ).to eql(init_params.join(','))
+  end
+
+  specify '#to_a returns the string(s) in an array' do
+    expect( subject.to_a ).to eql( init_params )
   end
 
 end
