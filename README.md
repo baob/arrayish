@@ -12,6 +12,35 @@ Status](https://travis-ci.org/baob/arrayish.svg?branch=master)](https://travis-c
 [![Code
 Climate](https://codeclimate.com/github/baob/arrayish/badges/gpa.svg)](https://codeclimate.com/github/baob/arrayish)
 
+## Examples of Use
+
+Where what is effectively array data is supplied as a string with separators,
+this can simplify code. Example
+
+    > fruits = Arrayish::String.new('apples,pears,oranges')
+
+    > fruits[1..-1]
+    => "pears,oranges"
+
+Contrast the same thing with an ordinary string
+
+    > fruits = 'apples,pears,oranges'
+
+    > fruits.split(',')[1..-1].join(',')
+    => "pears,oranges"
+
+The gem was written after enountering code that with littered with lines
+like the above, with repeated splits and joins. The meaning of the code
+was obfuscated by the chained transformations.
+
+An Arrayish::String can be cast to an array or string as required.
+
+    > fruits.to_s[0..4]
+    => "apple"
+
+    > fruits.to_a
+    => ["apples", "pears", "oranges"]
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,7 +57,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Use the class directly
+
+The separator will be a comma.
+
+    > fruits = Arrayish::String.new('apples,pears,oranges')
+
+### Subclass it
+
+    > require 'arrayish'
+    > class FruitList < Arrayish::String
+    >   def separator
+    >     '|'
+    >   end
+    > end
+
+    > fruits = FruitList.new('apples|pears')
+    => "apples|pears"
+    > fruits[0]
+    => "apples"
 
 ## Contributing
 
