@@ -12,6 +12,11 @@ Status](https://travis-ci.org/baob/arrayish.svg?branch=master)](https://travis-c
 [![Code
 Climate](https://codeclimate.com/github/baob/arrayish/badges/gpa.svg)](https://codeclimate.com/github/baob/arrayish)
 
+[![Dependency Status][DS img]][Dependency Status]
+
+[Dependency Status]: https://gemnasium.com/baob/arrayish
+[DS img]: https://gemnasium.com/baob/arrayish.png
+
 ## Examples of Use
 
 Where what is effectively array data is supplied as a string with separators,
