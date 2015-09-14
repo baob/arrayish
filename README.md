@@ -7,7 +7,7 @@ Arrayish::String simplifies and DRYs code where an array appears in a
 string with delimiters.
 
 [![Travis Build
-Status](https://travis-ci.org/baob/arrayish.svg?branch=master)](https://travis-ci.org/baob/testing-in-nodejs)
+Status](https://travis-ci.org/baob/arrayish.svg?branch=master)](https://travis-ci.org/baob/arrayish)
 
 [![Code
 Climate](https://codeclimate.com/github/baob/arrayish/badges/gpa.svg)](https://codeclimate.com/github/baob/arrayish)
